@@ -10,7 +10,6 @@ namespace ProgrammingCSharp
         {
             var numero = 10;
             var person = new Person("Maryluz");
-
         }
     }
 }

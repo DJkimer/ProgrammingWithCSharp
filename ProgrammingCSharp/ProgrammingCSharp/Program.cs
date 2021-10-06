@@ -7,6 +7,9 @@ namespace ProgrammingCSharp
 
         static void Main(string[] args)
         {
+
+
+            EstructurasDeControl.EstructuraTryCatch();
             string name = "Can I use this \"string\" within the string?";            
             string name2 = "Can I use this \"string\" within \\ the string?"; //Can I use this "string" within \ the string?
             string name3 = "Can I use this \"string\" within \\\\ the string?"; //Can I use this "string" within \\ the string?
@@ -18,6 +21,16 @@ namespace ProgrammingCSharp
             Person person1 = new Person();
             Person person2 = new Person("Diego");
             Person person3 = new Person("Luigi", "Sanchez");
+            person2.Email = "diego";
+            int contador = 14;
+            Console.WriteLine(contador);
+            Console.WriteLine(person2.Email);
+            Console.WriteLine("Actualizando valores...");
+            PorValorPorReferencia.ActualizarPersona(person2);
+            PorValorPorReferencia.AumentarContador(ref contador);
+            Console.WriteLine("Terminado...");
+            Console.WriteLine(contador);
+            Console.WriteLine(person2.Email);
             person1.FirstName = "Juan Camilo";
             person1.Calle = "#";
             person1.Numero = "9";
@@ -29,6 +42,9 @@ namespace ProgrammingCSharp
             Console.WriteLine("Person2: "+ person2.GetFullName());
             Console.WriteLine("Person3: "+ person3.GetFullName());
             int sum = StaticClass1.GetSum(2, 5);
+
+
+
         }
     }
 
