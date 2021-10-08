@@ -12,9 +12,9 @@ namespace ProyectoCalculadora
 {
     public partial class Form1 : Form
     {
-        int PrimerOperando = 0;
+        double PrimerOperando = 0;
         string Operador = "";
-        int SegundoOperando = 0;
+        double SegundoOperando = 0;
         public Form1()
         {
             InitializeComponent();
@@ -24,7 +24,7 @@ namespace ProyectoCalculadora
         {
             Button button = (Button)sender;
             int operando = int.Parse(button.Text);
-            int valorOperadorActual = 0;
+            double valorOperadorActual = 0;
             if (string.IsNullOrEmpty(Operador))
                 valorOperadorActual = PrimerOperando;
             else
@@ -36,25 +36,55 @@ namespace ProyectoCalculadora
                 SegundoOperando = valorOperadorActual;
             resultado.Text = valorOperadorActual.ToString();
         }
-        private void ActualizarSegundoOperando(object sender, EventArgs e)
-        {
-            Button button = (Button)sender;
-            int operador = int.Parse(button.Text);
-            SegundoOperando = (SegundoOperando * 10) + operador;
-            resultado.Text = SegundoOperando.ToString();
-        }
 
         private void ActualizarOperador(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(Operador))
+            {
+                CalcularResultado(sender, e);
+                SegundoOperando = 0;
+            }else
+                LimpiarResultado();
             Button button = (Button)sender;
             Operador = button.Text;
-            LimpiarResultado(sender,e);
+            txtOperador.Text = Operador;
         }
 
-        private void LimpiarResultado(object sender, EventArgs e)
+        private void CalcularResultado (object sender, EventArgs e)
+        {
+            switch (Operador)
+            {
+
+                case "+":
+                    PrimerOperando += SegundoOperando;
+                    break;
+                case "-":
+                    PrimerOperando -= SegundoOperando;
+                    break;
+                case "*":
+                    PrimerOperando *= SegundoOperando;
+                    break;
+                case "/":
+                    PrimerOperando /=  SegundoOperando;
+                    break;
+            }
+            resultado.Text = PrimerOperando.ToString();
+        }
+
+        private void LimpiarResultado()
         {
             resultado.Text = "0";
         }
+
+        private void LimpiarTodo(object sender, EventArgs e)
+        {
+            Operador = "";
+            PrimerOperando = 0;
+            SegundoOperando = 0;
+            LimpiarResultado();
+        }
+
+
 
     }
 }

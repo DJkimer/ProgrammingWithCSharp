@@ -47,6 +47,7 @@ namespace ProyectoCalculadora
             this.button18 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
+            this.txtOperador = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // resultado
@@ -147,6 +148,7 @@ namespace ProyectoCalculadora
             this.button9.TabIndex = 12;
             this.button9.Text = "=";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.CalcularResultado);
             // 
             // button10
             // 
@@ -244,13 +246,22 @@ namespace ProyectoCalculadora
             this.button13.TabIndex = 22;
             this.button13.Text = "CE";
             this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.LimpiarResultado);
+            this.button13.Click += new System.EventHandler(this.LimpiarTodo);
+            // 
+            // txtOperador
+            // 
+            this.txtOperador.Location = new System.Drawing.Point(338, 30);
+            this.txtOperador.Name = "txtOperador";
+            this.txtOperador.ReadOnly = true;
+            this.txtOperador.Size = new System.Drawing.Size(30, 20);
+            this.txtOperador.TabIndex = 23;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(381, 476);
+            this.Controls.Add(this.txtOperador);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button16);
@@ -296,6 +307,7 @@ namespace ProyectoCalculadora
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.TextBox txtOperador;
     }
 }
 
