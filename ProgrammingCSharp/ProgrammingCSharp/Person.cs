@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ProgrammingCSharp
 {
-    partial class Person
+    public partial class Person
     {
         public int Identificacion { get; set; }
 
@@ -13,7 +13,7 @@ namespace ProgrammingCSharp
         public string Numero { get; set; }
 
 
-        public string GetDireccion()
+        public virtual string GetDireccion()
         {
             return Calle + "" + Numero;
         }

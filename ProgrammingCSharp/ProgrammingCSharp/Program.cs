@@ -7,7 +7,30 @@ namespace ProgrammingCSharp
 
         static void Main(string[] args)
         {
+            
+            Perro perro = new Perro();
+            perro.Comer();
+            perro.Ladrar();
 
+            Gato gato = new Gato();
+            gato.Comer();
+            gato.Name = "Felix";
+            Console.WriteLine(gato.HacerUnTruco());
+
+            Person person = new Person();
+            Employee employee = new Employee();
+            employee.ID = 1;
+            employee.Office = "Office 302";
+            employee.Identificacion = 123;
+            employee.FirstName = "Employee";
+            employee.LastName = "LastNameEmployee";
+            employee.Calle = "54 sur";
+            employee.Numero = "74";
+            Console.WriteLine(employee.GetFullName());
+            Console.WriteLine(employee.GetDireccion());
+
+
+            Colecciones.ColeccionArray();
 
             EstructurasDeControl.EstructuraTryCatch();
             string name = "Can I use this \"string\" within the string?";            
@@ -49,7 +72,7 @@ namespace ProgrammingCSharp
     }
 
 
-    partial class Person
+    public partial class Person
     {
         public string FirstName { get; set; }
 
